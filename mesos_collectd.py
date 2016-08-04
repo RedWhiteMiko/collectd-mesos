@@ -166,8 +166,8 @@ def dispatch_stat(result, name, key, conf):
     plugin_type = 'master' if IS_MASTER else 'slave'
     cluster_dimension = ''
     if conf['cluster']:
-        cluster_dimension = ',cluster=%s' % conf['cluster']
-    val.plugin_instance = ('%s[plugin_type=%s%s]' %
+        cluster_dimension = '-%s' % conf['cluster']
+    val.plugin_instance = ('%s-%s%s]' %
                            (conf['instance'], plugin_type, cluster_dimension))
     # https://github.com/collectd/collectd/issues/716
     val.meta = {'0': True}
